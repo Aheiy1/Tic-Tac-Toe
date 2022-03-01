@@ -48,11 +48,10 @@
     font-size: 20px;
   }
 
-  .x,
-  .o {
-      font-family: 'Courier New', Courier, monospace;
-      color: black;
-      size: 15px;
-  }
-  
-  
+ .circle::before{
+   content: "O"
+ }
+
+ .x::before{
+  content: "X"
+}
