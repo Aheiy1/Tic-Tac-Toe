@@ -28,10 +28,16 @@ const cell = document.querySelectorAll(".cell");
 board.addEventListener("click", function (event) {
   //   console.log(event.target.id.split(","));
   if (turn === 1) {
+   gameState.board [0][0] === gameState.board [0][1] && gameState.board [0][2] == "circle"
+   gameState.board [1][0] === gameState.board [1][1] && gameState.board [1][2] == "circle"
+   gameState.board [2][0] === gameState.board [2][1] && gameState.board [2][2] == "circle"
     event.target.classList.toggle("circle");
     response.innerHTML = "Player 2 Turn";
     turn = 2;
   } else if (turn === 2) {
+    gameState.board [0][0] === gameState.board [0][1] && gameState.board [0][2] == "x"
+   gameState.board [1][0] === gameState.board [1][1] && gameState.board [1][2] == "x"
+   gameState.board [2][0] === gameState.board [2][1] && gameState.board [2][2] == "x"
     event.target.classList.toggle("x");
     response.innerHTML = "Player 1 Turn";
     turn = 1;
@@ -77,7 +83,7 @@ board.addEventListener("click", function (event) {
 //     }
 //   }
 // }
-checkWin();
+// checkWin();
 function renderGame() {
   gamePlay();
   board();
