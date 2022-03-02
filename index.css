@@ -2,24 +2,32 @@
     border: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: bisque;
+    /* background-color: bisque; */
     
 }
   
   
-   body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding-top: 15rem; */
-  }
-  
+body {
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:50px auto;
+  color: rgb(7, 207, 107);
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+}
+
   #board {
-    margin: 10rem;
-    height: 360px;
-    width: 360px;
+    margin-top: 10rem;
+    height: 400px;
+    width: 400px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: 5rem;
+    margin-left: 5rem;
   } 
   
   .cell {
@@ -31,27 +39,46 @@
   }
   
   #board > :nth-child(3n+2) {
-      border-right: 2px solid black;
-      border-left: 2px solid black;
+      border-right: 5px solid black;
+      border-left: 5px solid black;
   }
   
   #board > :nth-child(n+4):nth-child(-n+6) {
-      border-top: 2px solid black;
-      border-bottom: 2px solid black;
+      border-top: 5px solid black;
+      border-bottom: 5px solid black;
   }
   
-  .response {
+  header {
     height: 50px;
-    text-align:left;
-    color: aquamarine;
+    align-items: left;
+    color: #1313ac;
     font-weight: bold;
     font-size: 20px;
   }
 
- .circle::before{
-   content: "O"
+ .circle::before {
+   content: "O";
+   color: purple;
+   font-size: larger;
+   font-weight: bolder;
  }
 
  .x::before{
-  content: "X"
+  content: "X";
+  color: cornflowerblue;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  top:50%;
+    background-color:#14147e;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    height: fit-content;
+    font-size: larger;
 }
