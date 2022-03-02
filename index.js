@@ -1,62 +1,59 @@
 const gameState = {
   players: ["x", "o"],
+  currentPlayerIndex: 0,
   board: [
-    [0, 0],
-    [0, 1],
-    [0, 2],
-    [1, 0],
-    [1, 1],
-    [1, 2],
-    [2, 0],
-    [2, 1],
-    [2, 2],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
   ],
 };
-console.log(gameState.board);
-const circle = (document.getElementsByClassName = "circle");
-const x = "x";
-const o = "o";
+// console.log(gameState.board);
+// const circle = (document.getElementsByClassName = "circle");
+// const x = "x";
+// const o = "o";
 
-let turn = 1;
+// let turn = 1;
 // const player1 = gameState.players[0]
 // const player2 = gameState.players[1]
 
 const board = document.getElementById("board");
 let response = document.querySelector(".response");
-const cell = document.querySelectorAll(".cell");
 
 board.addEventListener("click", function (event) {
-  //   console.log(event.target.id.split(","));
-  if (turn === 1) {
-   gameState.board [0][0] === gameState.board [0][1] && gameState.board [0][2] == "circle"
-   gameState.board [1][0] === gameState.board [1][1] && gameState.board [1][2] == "circle"
-   gameState.board [2][0] === gameState.board [2][1] && gameState.board [2][2] == "circle"
-    event.target.classList.toggle("circle");
-    response.innerHTML = "Player 2 Turn";
-    turn = 2;
-  } else if (turn === 2) {
-    gameState.board [0][0] === gameState.board [0][1] && gameState.board [0][2] == "x"
-   gameState.board [1][0] === gameState.board [1][1] && gameState.board [1][2] == "x"
-   gameState.board [2][0] === gameState.board [2][1] && gameState.board [2][2] == "x"
-    event.target.classList.toggle("x");
-    response.innerHTML = "Player 1 Turn";
-    turn = 1;
-    // } else if (turn === 3){
-    //   event.target.classList.toggle('circle') === gameState.board[0, 0] && [0, 2] && [0, 3]
-    //   // response.innerHTML = "Player One Wins"
-    // }
-    // else if ((board[0, 0] == '.x') && (board[0, 1] == '.x') && (board[0, 2] == '.x')){
-    //   response.innerHTML = "Player 2 Wins"
-    // }
-    //   }
-    //   response.innerHTML = "Player 2 Turn";
-
-    //   if (event.target.matches("div.cell2")){
-    //       gameState.players = [1];
-    //   }
-    //   response.innerHTML = "Player 1 Turn"
+  console.log(event.target.id);
+  // the next line splits our id at the comma, returning an array of two numbers (indexes)
+  let gridCoordinates = event.target.id.split(",");
+  console.log(gridCoordinates);
+  let row = gridCoordinates[0];
+  let col = gridCoordinates[1];
+  gameState.board[row][col] = gameState.players[gameState.currentPlayerIndex];
+  if (gameState.currentPlayerIndex === 0) {
+    gameState.currentPlayerIndex = 1;
+  } else if (gameState.currentPlayerIndex === 1) {
+    gameState.currentPlayerIndex = 0;
   }
+  console.log(gameState.board);
 });
+
+function renderBoard() {
+  // loop over the gameState board (nested for loops)
+  for (let row = 0; row < gameState.board.length; row++) {
+    console.log(row, "row");
+
+    for (let col = 0; col < gameState.board[row].length; col++) {
+      // console.log(col, "column");
+      if (gameState.board[row][col]) {
+        return [row][col];
+      }
+      
+    }
+  }
+}
+
+renderBoard();
+// use the indexes for the for loops to accsess the value of the currect board position
+// use the indexes to query for the corresponding html element
+// set the innerText of that element equal to the current board position's value
 
 // function gamePlay() {
 //   for (let i = 0; i < gameState.board.length; i++) {
@@ -69,21 +66,22 @@ board.addEventListener("click", function (event) {
 // ]
 
 // function checkWin() {
-//   for (let i = 0; i < gameState.board.length; i++) {
-//     let element = gameState.board[i];
-//     for (let k = 0; k < element.length; i++) {
-//       // console.log(element[(0, 0)], "hello");
+//   for (let row = 0; row < gameState.board.length; row++) {
+//     // console.log(row, 'row')
+//     for (let col = 0; col < gameState.board[row].length; col++) {
+//       // console.log(col, 'column')
 //       if (
-//         element[0] &&
-//         element[0] === element[1] &&
-//         element[0] === element[3]
+//         gameState.board[0] &&
+//         (gameState.board[1] == gameState.board[2]) == "circle"
 //       ) {
 //         response.innerHTML = "Player 2 Wins";
 //       }
+//       // console.log(gameState.board[0][0], "0 0")
 //     }
 //   }
 // }
 // checkWin();
+
 function renderGame() {
   gamePlay();
   board();
