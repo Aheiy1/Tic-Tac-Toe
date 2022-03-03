@@ -17,7 +17,7 @@ const gameState = {
 // const player2 = gameState.players[1]
 
 const board = document.getElementById("board");
-const cellElement = document.querySelectorAll(".cell");
+const cell = document.querySelectorAll(".cell");
 
 let winner = document.querySelector(".winner");
 let response = document.querySelector(".response");
@@ -26,10 +26,14 @@ board.addEventListener("click", function (event) {
   // console.log(event.target.id);
   // the next line splits our id at the comma, returning an array of two numbers (indexes)
   let gridCoordinates = event.target.id.split(",");
+  console.log(event.target, 'target')
   console.log(gridCoordinates);
   let row = gridCoordinates[0];
   let col = gridCoordinates[1];
-  gameState.board[row][col] = gameState.players[gameState.currentPlayerIndex];
+  // if (event.target.???){}
+  if(!gameState.board[row][col]){
+    gameState.board[row][col] = gameState.players[gameState.currentPlayerIndex];
+    console.log(gameState.currentPlayerIndex, 'player')
   if (gameState.currentPlayerIndex === 0) {
     gameState.currentPlayerIndex = 1;
     event.target.classList.add("x");
@@ -39,27 +43,21 @@ board.addEventListener("click", function (event) {
     response.innerHTML = "Player 1 turn";
     gameState.currentPlayerIndex = 0;
   }
+  checkWin();
+  }
+
   console.log(gameState.board);
   // console.log(gameState.board[0][0], "0 0")
 });
 
 function checkWin() {
-  for (let i = 0; i < gameState.board.length; i++) {
-    if (
-      gameState.board[0].content === "o" &&
-      gameState.board[1].content === "o" &&
-      gameState.board[2],content === "o"
-    ) {
-      console.log('winner');
-      winner.innerHTML = "Player 1 Wins";
-    } else {
-      return false;
-    }
+  // for (let i = 0; i < gameState.board.length; i++) {
+  if (
+    gameState.board[0][0] && gameState.board [0][1] && gameState.board [0][2] == 'x'
+  ) {    
+    alert("win")
   }
 }
-
-checkWin();
-
 //loop over the gameState board (nested for loops)
 // for (let row = 0; row < gameState.board.length; row++) {
 //   // console.log(row, "row");
@@ -97,10 +95,10 @@ checkWin();
 //     }
 //   }
 // }
-// checkWin();
+
 
 function renderGame() {
   gamePlay();
-  board();
   checkWin();
+  board();
 }
