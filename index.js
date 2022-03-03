@@ -46,11 +46,11 @@ board.addEventListener("click", function (event) {
 function checkWin() {
   for (let i = 0; i < gameState.board.length; i++) {
     if (
-      gameState.board[0][0] == "o" &&
-      gameState.board[0][1] == "o" &&
-      gameState.board[0][2] == "o"
+      gameState.board[0].content === "o" &&
+      gameState.board[1].content === "o" &&
+      gameState.board[2],content === "o"
     ) {
-      console.log(true);
+      console.log('winner');
       winner.innerHTML = "Player 1 Wins";
     } else {
       return false;
