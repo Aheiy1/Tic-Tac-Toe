@@ -15,6 +15,13 @@ const cell = document.querySelectorAll(".cell");
 let winner = document.querySelector(".winner");
 let response = document.querySelector(".response");
 
+function getWinner() {
+  let content = document.createElement("h1");
+  let message = document.createTextNode("Congrats! You have won");
+  content.appendChild(message);
+  document.body.appendChild(content);
+}
+
 board.addEventListener("click", function (event) {
   // console.log(event.target.id);
   // the next line splits our id at the comma, returning an array of two numbers (indexes)
@@ -26,7 +33,6 @@ board.addEventListener("click", function (event) {
   // if (event.target.???){}
   if (!gameState.board[row][col]) {
     gameState.board[row][col] = gameState.players[gameState.currentPlayerIndex];
-    // console.log(gameState.board[row [0]], "row")
 
     if (gameState.currentPlayerIndex === 0) {
       gameState.currentPlayerIndex = 1;
@@ -54,13 +60,13 @@ function getWin() {
       rowArr[0][0] === rowArr[0][1] &&
       rowArr[0][1] === rowArr[0][2]
     ) {
-      alert("win");
+      getWinner();
     } else if (
       rowArr[0][0] === "x" &&
       rowArr[0][0] === rowArr[0][1] &&
       rowArr[0][1] === rowArr[0][2]
     ) {
-      alert("win");
+      getWinner();
     }
   }
   if (
@@ -68,32 +74,67 @@ function getWin() {
     gameState.board[0][0] === gameState.board[1][0] &&
     gameState.board[1][0] === gameState.board[2][0]
   ) {
-    alert("win");
+    getWinner();
   } else if (
     gameState.board[0][0] === "o" &&
     gameState.board[0][0] === gameState.board[1][0] &&
     gameState.board[1][0] === gameState.board[2][0]
   ) {
-    alert("win");
+    getWinner();
+  }
+  if (
+    gameState.board[0][1] === "x" &&
+    gameState.board[0][1] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][1]
+  ) {
+    getWinner();
+  } else if (
+    gameState.board[0][1] === "o" &&
+    gameState.board[0][1] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][1]
+  ) {
+    getWinner();
+  }
+  if (
+    gameState.board[0][2] === "x" &&
+    gameState.board[0][2] === gameState.board[1][2] &&
+    gameState.board[1][2] === gameState.board[2][2]
+  ) {
+    getWinner();
+  } else if (
+    gameState.board[0][2] === "o" &&
+    gameState.board[0][2] === gameState.board[1][2] &&
+    gameState.board[1][2] === gameState.board[2][2]
+  ) {
+    getWinner();
+  }
+  if (
+    gameState.board[0][0] === "x" &&
+    gameState.board[0][0] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][2]
+  ) {
+    getWinner();
+  } else if (
+    gameState.board[0][0] === "o" &&
+    gameState.board[0][0] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][2]
+  ) {
+    getWinner();
+  }
+  if (
+    gameState.board[0][2] === "x" &&
+    gameState.board[0][2] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][0]
+  ) {
+    getWinner();
+  } else if (
+    gameState.board[0][2] === "o" &&
+    gameState.board[0][2] === gameState.board[1][1] &&
+    gameState.board[1][1] === gameState.board[2][0]
+  ) {
+    getWinner();
   }
 }
-
-// function getCol(col) {
-//   for (let i = 0; i < gameState.board[i].length; i++) {
-//     let col = gameState.board[i];
-
-//     console.log(col, "col");
-//     // console.log(col, 'col')
-//     if (col[0] === "o" && col[0] === col[1] && col[1] === col[2]) {
-//       alert("win");
-//     } else if (col[0] === "x" && col[0] === col[1] && col[1] === col[2]) {
-//       alert("win");
-//     }
-
-//   }
-// }
-
-
 
 //loop over the gameState board (nested for loops)
 // for (let row = 0; row < gameState.board.length; row++) {
@@ -110,28 +151,6 @@ function getWin() {
 // use the indexes for the for loops to accsess the value of the currect board position
 // use the indexes to query for the corresponding html element
 // set the innerText of that element equal to the current board position's value
-
-// checkWin();
-
-// function gamePlay() {
-//   for (let i = 0; i < gameState.board.length; i++) {
-//     console.log(gameState.board[i], "loop")
-//   }
-// }
-
-// function checkWin() {
-//   for (let row = 0; row < gameState.board.length; row++) {
-//     // console.log(row, 'row')
-//     for (let col = 0; col < gameState.board[row].length; col++) {
-//       // console.log(col, 'column')
-//       if ( gameState.board[0][0] && gameState.board[0][1] === gameState.board[0][2] === "x")
-//      {
-//         response.innerHTML = "Player 2 Wins";
-//       }
-//       // console.log(gameState.board[0][0], "0 0")
-//     }
-//   }
-// }
 
 function renderGame() {
   gamePlay();
