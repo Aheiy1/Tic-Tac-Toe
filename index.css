@@ -11,11 +11,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px auto;
-  color: rgb(7, 207, 107);
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  /* margin: 50px auto; */
+  background-color: #b5b9bb;
+  background-image: url("https://i2.wp.com/www.thegamegal.com/wp-content/uploads/2018/08/ultimate-tic-tac-toe.png?fit=804%2C1000&ssl=1"),
+    linear-gradient(#a4cde6, #31d1bc, rgb(172, 172, 18));
 }
 
+h2 {
+  position: fixed;
+  bottom: 90%;
+  left: 51%;
+  font-family: Chalkduster, fantasy;
+  color: #acaa13;
+
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000,
+    1px 1px 0 #000;
+  font-size: 2rem;
+}
 #board {
   margin-top: 10rem;
   height: 400px;
@@ -23,11 +35,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-self: center;
+  align-items: center;
   margin-bottom: 5rem;
   margin-left: 5rem;
 }
-
 .cell {
   display: flex;
   flex-basis: 120px;
@@ -39,21 +50,30 @@ body {
 }
 
 #board > :nth-child(3n + 2) {
-  border-right: 5px solid black;
-  border-left: 5px solid black;
+  border-right: 3px solid black;
+  border-left: 3px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #board > :nth-child(n + 4):nth-child(-n + 6) {
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 header {
   height: 50px;
   align-items: left;
-  color: #1313ac;
+  color: #acaa13;
   font-weight: bold;
-  font-size: 20px;
+  font-family: Chalkduster, fantasy;
+  font-size: 1.5rem;
+  /* text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1),
+    10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05); */
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000,
+    1px 1px 0 #000;
 }
 
 .circle::before {
@@ -61,6 +81,7 @@ header {
   color: purple;
   font-size: 3rem;
   font-weight: bolder;
+  text-shadow: 5px 5px 5px rgb(39, 37, 37), 1px 1px 1px black;
 }
 
 .x::before {
@@ -68,6 +89,7 @@ header {
   color: cornflowerblue;
   font-size: 3rem;
   font-weight: bolder;
+  text-shadow: 5px 5px 5px black, 1px 1px 1px black;
 }
 
 button {
@@ -76,15 +98,30 @@ button {
   margin-top: 5rem;
   top: 50%;
   background-color: #14147e;
+  box-shadow: 5px 5px 5px 5px #312e2e;
   color: #fff;
   border: none;
   border-radius: 10px;
   height: fit-content;
   font-size: larger;
+  font-family: Chalkduster, fantasy;
+}
+button:hover {
+  background-color: #acaa13;
 }
 
-/* 
-div#board {
-  max-height: fit-content;
-  
-} */
+h1 {
+  font-family: Chalkduster, fantasy;
+  color: #acaa13;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000,
+    1px 1px 0 #000;
+  font-size: 2rem;
+}
+
+.cell {
+  box-shadow: 4px 4px 4px 4px black, 4px 4px 4px 4px black;
+}
+
+.cell:hover {
+  background-color: #acaa13;
+}

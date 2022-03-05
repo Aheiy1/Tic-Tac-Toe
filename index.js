@@ -134,8 +134,4 @@ function getWin() {
 // use the indexes to query for the corresponding html element
 // set the innerText of that element equal to the current board position's value
 
-function renderGame() {
-  gamePlay();
-  // checkWin();
-  board();
-}
+
