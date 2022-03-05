@@ -1,72 +1,69 @@
 * {
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-    /* background-color: bisque; */
-    
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* background-color: bisque; */
 }
-  
-  
+
 body {
   /* width: 100vw;
   height: 100vh; */
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin:50px auto;
+  margin: 50px auto;
   color: rgb(7, 207, 107);
   background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
-  #board {
-    margin-top: 10rem;
-    height: 400px;
-    width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-self: center;
-    margin-bottom: 5rem;
-    margin-left: 5rem;
-    
-  } 
-  
-  .cell {
-    display: flex;
-    flex-basis: 120px;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    /* border: 1px solid black; */
-  }
-  
-  #board > :nth-child(3n+2) {
-      border-right: 5px solid black;
-      border-left: 5px solid black;
-  }
-  
-  #board > :nth-child(n+4):nth-child(-n+6) {
-      border-top: 5px solid black;
-      border-bottom: 5px solid black;
-  }
-  
-  header {
-    height: 50px;
-    align-items: left;
-    color: #1313ac;
-    font-weight: bold;
-    font-size: 20px;
-  }
+#board {
+  margin-top: 10rem;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  margin-bottom: 5rem;
+  margin-left: 5rem;
+}
 
- .circle::before {
-   content: "O";
-   color: purple;
-   font-size: 3rem;
-   font-weight: bolder;
- }
+.cell {
+  display: flex;
+  flex-basis: 120px;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid black; */
+}
 
- .x::before{
+#board > :nth-child(3n + 2) {
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+}
+
+#board > :nth-child(n + 4):nth-child(-n + 6) {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+}
+
+header {
+  height: 50px;
+  align-items: left;
+  color: #1313ac;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.circle::before {
+  content: "O";
+  color: purple;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.x::before {
   content: "X";
   color: cornflowerblue;
   font-size: 3rem;
@@ -77,13 +74,13 @@ button {
   display: flex;
   justify-content: center;
   margin-top: 5rem;
-  top:50%;
-    background-color:#14147e;
-    color: #fff;
-    border:none;
-    border-radius:10px;
-    height: fit-content;
-    font-size: larger;
+  top: 50%;
+  background-color: #14147e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  height: fit-content;
+  font-size: larger;
 }
 
 /* 
