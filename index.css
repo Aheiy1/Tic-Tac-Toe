@@ -6,8 +6,6 @@
 }
 
 body {
-  /* width: 100vw;
-  height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +18,7 @@ body {
 h2 {
   position: fixed;
   bottom: 90%;
-  left: 51%;
+  left: 48%;
   font-family: Chalkduster, fantasy;
   color: #acaa13;
 
@@ -36,8 +34,6 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5rem;
-  margin-left: 5rem;
 }
 .cell {
   display: flex;
@@ -50,17 +46,17 @@ h2 {
 }
 
 #board > :nth-child(3n + 2) {
-  border-right: 3px solid black;
-  border-left: 3px solid black;
-  margin-left: 10px;
-  margin-right: 10px;
+  border-right: 1px 1px solid black;
+  border-left: 1px 1px solid black;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 #board > :nth-child(n + 4):nth-child(-n + 6) {
-  border-top: 3px solid black;
-  border-bottom: 3px solid black;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border-top: 1px 1px solid black;
+  border-bottom: 1px 1px solid black;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 header {
@@ -70,8 +66,6 @@ header {
   font-weight: bold;
   font-family: Chalkduster, fantasy;
   font-size: 1.5rem;
-  /* text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1),
-    10px 20px 5px rgba(0, 0, 0, 0.05), -10px 20px 5px rgba(0, 0, 0, 0.05); */
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000,
     1px 1px 0 #000;
 }
@@ -97,8 +91,6 @@ button {
   justify-content: center;
   margin-top: 5rem;
   top: 50%;
-  background-color: #14147e;
-  box-shadow: 5px 5px 5px 5px #312e2e;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -106,9 +98,9 @@ button {
   font-size: larger;
   font-family: Chalkduster, fantasy;
 }
-button:hover {
+/* button:hover {
   background-color: #acaa13;
-}
+  background-position: right center; /* change the direction of the change here */
 
 h1 {
   font-family: Chalkduster, fantasy;
@@ -119,9 +111,36 @@ h1 {
 }
 
 .cell {
-  box-shadow: 4px 4px 4px 4px black, 4px 4px 4px 4px black;
+  background: linear-gradient(to right, #77a1d3 0%, #79cbca 51%, #77a1d3 100%);
+}
+.cell {
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  border-radius: 10px;
 }
 
 .cell:hover {
-  background-color: #acaa13;
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+button {
+  background: linear-gradient(to right, #77a1d3 0%, #79cbca 51%, #77a1d3 100%);
+}
+button {
+  padding: 10px;
+  transition: 0.5s;
+  color: #ebdd19;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000,
+    1px 1px 0 #000;
+}
+
+button:hover {
+  background-position: right center;
+  color: rgb(168, 160, 160);
+  text-decoration: none;
 }

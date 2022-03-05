@@ -27,6 +27,7 @@ function noWinner() {
   content.appendChild(message);
   document.body.appendChild(content);
 }
+
 board.addEventListener("click", function (event) {
   // console.log(event.target.id);
   // the next line splits our id at the comma, returning an array of two numbers (indexes)
