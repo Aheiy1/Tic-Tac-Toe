@@ -21,7 +21,12 @@ function getWinner() {
   content.appendChild(message);
   document.body.appendChild(content);
 }
-
+function noWinner() {
+  let content = document.createElement("h1");
+  let message = document.createTextNode("Try again, No one wins");
+  content.appendChild(message);
+  document.body.appendChild(content);
+}
 board.addEventListener("click", function (event) {
   // console.log(event.target.id);
   // the next line splits our id at the comma, returning an array of two numbers (indexes)
@@ -70,72 +75,49 @@ function getWin() {
     }
   }
   if (
-    gameState.board[0][0] === "x" &&
+    gameState.board[0][0] &&
     gameState.board[0][0] === gameState.board[1][0] &&
     gameState.board[1][0] === gameState.board[2][0]
   ) {
     getWinner();
   } else if (
-    gameState.board[0][0] === "o" &&
-    gameState.board[0][0] === gameState.board[1][0] &&
-    gameState.board[1][0] === gameState.board[2][0]
-  ) {
-    getWinner();
-  }
-  if (
-    gameState.board[0][1] === "x" &&
+    gameState.board[0][1] &&
     gameState.board[0][1] === gameState.board[1][1] &&
     gameState.board[1][1] === gameState.board[2][1]
   ) {
     getWinner();
   } else if (
-    gameState.board[0][1] === "o" &&
-    gameState.board[0][1] === gameState.board[1][1] &&
-    gameState.board[1][1] === gameState.board[2][1]
-  ) {
-    getWinner();
-  }
-  if (
-    gameState.board[0][2] === "x" &&
+    gameState.board[0][2] &&
     gameState.board[0][2] === gameState.board[1][2] &&
     gameState.board[1][2] === gameState.board[2][2]
   ) {
     getWinner();
   } else if (
-    gameState.board[0][2] === "o" &&
-    gameState.board[0][2] === gameState.board[1][2] &&
-    gameState.board[1][2] === gameState.board[2][2]
-  ) {
-    getWinner();
-  }
-  if (
-    gameState.board[0][0] === "x" &&
+    gameState.board[0][0] &&
     gameState.board[0][0] === gameState.board[1][1] &&
     gameState.board[1][1] === gameState.board[2][2]
   ) {
     getWinner();
   } else if (
-    gameState.board[0][0] === "o" &&
-    gameState.board[0][0] === gameState.board[1][1] &&
-    gameState.board[1][1] === gameState.board[2][2]
-  ) {
-    getWinner();
-  }
-  if (
-    gameState.board[0][2] === "x" &&
+    gameState.board[0][2] &&
     gameState.board[0][2] === gameState.board[1][1] &&
     gameState.board[1][1] === gameState.board[2][0]
   ) {
     getWinner();
   } else if (
-    gameState.board[0][2] === "o" &&
-    gameState.board[0][2] === gameState.board[1][1] &&
-    gameState.board[1][1] === gameState.board[2][0]
+    gameState.board[0][0] &&
+    gameState.board[0][1] &&
+    gameState.board[0][2] &&
+    gameState.board[1][0] &&
+    gameState.board[1][1] &&
+    gameState.board[1][2] &&
+    gameState.board[2][0] &&
+    gameState.board[2][1] &&
+    gameState.board[2][2]
   ) {
-    getWinner();
+    noWinner();
   }
 }
-
 //loop over the gameState board (nested for loops)
 // for (let row = 0; row < gameState.board.length; row++) {
 //   // console.log(row, "row");
